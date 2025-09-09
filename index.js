@@ -1,6 +1,6 @@
 const spinner = document.getElementById('spinner');
 
-// Modal
+// Modal 
 const loadNameDetails = async (id) => {
     const res = await fetch(`https://openapi.programming-hero.com/api/plant/${id}`);
     const data = await res.json();
@@ -18,7 +18,7 @@ const displayModal = (plant) => {
     document.getElementById("my_modal_5").showModal();
 }
 
-// Sidebar
+// Sidebar part
 const toggleMenu = async () => {
     const res = await fetch("https://openapi.programming-hero.com/api/categories");
     const data = await res.json();
@@ -38,7 +38,7 @@ const displayMenu = (categories) => {
         await allCategory();
     }
     container.appendChild(allLi);
-    // other categories
+    // other categories 
     categories.forEach(cat => {
         const li = document.createElement("li");
         li.textContent = cat.category_name;
@@ -54,7 +54,7 @@ const displayMenu = (categories) => {
 
 
 
-// Cards
+// Cards part
 const loadTreeCard = async (id) => {
     spinner.classList.remove("hidden");
     const res = await fetch(`https://openapi.programming-hero.com/api/category/${id}`);
@@ -91,7 +91,7 @@ const displayLoadTreeCard = (trees) => {
     });
 }
 
-// Add to Cart
+// Add to Cart part
 document.getElementById("card-cointainer").addEventListener("click", (e) => {
     if (e.target.classList.contains("add-cart")) {
         const card = e.target.closest(".tree-card");
@@ -119,7 +119,7 @@ function addToCart(name, price) {
 }
 
 
-// Remove from cart
+// Remove cart
 document.getElementById("add-to-cart-main-section").addEventListener("click", (e) => {
     if (e.target.classList.contains("remove-btn")) {
         e.target.closest(".cart-item").remove();
@@ -127,7 +127,7 @@ document.getElementById("add-to-cart-main-section").addEventListener("click", (e
     }
 });
 
-// Update total tk
+// Update total
 function updateCartTotal() {
     let total = 0;
     document.querySelectorAll(".cart-item").forEach(item => {
